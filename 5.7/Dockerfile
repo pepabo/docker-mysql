@@ -32,9 +32,11 @@ RUN mkdir /docker-entrypoint-initdb.d
 
 RUN set -eux; \
 	apt-get update; \
+	DEBIAN_FRONTEND=noninteractive \
 	apt-get install -y --no-install-recommends \
 		bzip2 \
 		openssl \
+                tzdata \
 # FATAL ERROR: please install the following Perl modules before executing /usr/local/mysql/scripts/mysql_install_db:
 # File::Basename
 # File::Copy
