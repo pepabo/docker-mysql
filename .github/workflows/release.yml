@@ -39,9 +39,3 @@ jobs:
             yano3/mysql:5.7.39
             ghcr.io/yano3/mysql:5.7
             ghcr.io/yano3/mysql:5.7.39
-
-      - name: Update Docker Hub description
-        uses: peter-evans/dockerhub-description@v3
-        with:
-          username: ${{ secrets.DOCKER_HUB_ID }}
-          password: ${{ secrets.DOCKER_HUB_PASSWORD }}
