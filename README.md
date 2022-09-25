@@ -1,5 +1,7 @@
 # docker-mysql
 
+[![Docker Image CI](https://github.com/yano3/docker-mysql/actions/workflows/ci.yml/badge.svg)](https://github.com/yano3/docker-mysql/actions/workflows/ci.yml)
+
 MySQL 5.7 Docker image with ARM64 architecture support. Based on [official MySQL image](https://github.com/docker-library/mysql).
 
 ## Differences from the official image
