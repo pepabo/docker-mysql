@@ -11,7 +11,8 @@ MySQL 5.7 Docker image with ARM64 architecture support. Based on [official MySQL
 
 ## Tags
 
-- [`5.7.39`](https://github.com/yano3/docker-mysql/blob/main/5.7/Dockerfile), [`5.7`](https://github.com/yano3/docker-mysql/blob/main/5.7/Dockerfile)
+- [`5.7.40`](https://github.com/yano3/docker-mysql/blob/main/5.7/Dockerfile), [`5.7`](https://github.com/yano3/docker-mysql/blob/main/5.7/Dockerfile)
+- [`5.7.39`](https://github.com/yano3/docker-mysql/blob/f91fd374ec28d433ac7f4cc11363c833bc0a249f/5.7/Dockerfile)
 
 ## How to use this image
 
