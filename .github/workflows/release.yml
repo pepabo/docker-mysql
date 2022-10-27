@@ -36,6 +36,6 @@ jobs:
           push: true
           tags: |
             yano3/mysql:5.7
-            yano3/mysql:5.7.39
+            yano3/mysql:5.7.40
             ghcr.io/yano3/mysql:5.7
-            ghcr.io/yano3/mysql:5.7.39
+            ghcr.io/yano3/mysql:5.7.40

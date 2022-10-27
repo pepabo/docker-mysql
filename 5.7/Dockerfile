@@ -59,7 +59,7 @@ RUN set -eux; \
 	rm -rf "$GNUPGHOME"
 
 ENV MYSQL_MAJOR 5.7
-ENV MYSQL_VERSION 5.7.39-0ubuntu0.18.04.2
+ENV MYSQL_VERSION 5.7.40-0ubuntu0.18.04.1
 
 # the "/var/lib/mysql" stuff here is because the mysql-server postinst doesn't have an explicit way to disable the mysql_install_db codepath besides having a database already "configured" (ie, stuff in /var/lib/mysql/mysql)
 # also, we set debconf keys to make APT a little quieter
