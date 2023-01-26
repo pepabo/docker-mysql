@@ -2,18 +2,36 @@ name: Docker Image CI
 
 on:
   push:
-    branches: [ main ]
-    paths:
-      - 5.7/**
+    branches:
+      - main
   pull_request:
-    branches: [ main ]
-    paths:
-      - 5.7/**
-  workflow_dispatch:
 
 jobs:
+  pickup:
+    runs-on: ubuntu-latest
+    outputs:
+      versions: ${{ steps.pickup.outputs.versions }}
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: pickup
+      id: pickup
+      run: |
+        find ${GITHUB_WORKSPACE} -type f -name Dockerfile | \
+          sed -e "s|^${GITHUB_WORKSPACE}/||g" -e "s|/Dockerfile$||g" | \
+          awk -v ORS="" 'BEGIN { print "versions=[" } { print "\"" $0 "\"," } END { print "]"}' | \
+          sed -e "s|\,\]$|\]|" >> $GITHUB_OUTPUT
+
   build:
     runs-on: ubuntu-latest
+    needs:
+      - pickup
+    strategy:
+      matrix:
+        platform:
+          - linux/amd64
+          - linux/arm64
+        version: ${{ fromJSON( needs.pickup.outputs.versions ) }}
 
     steps:
       - name: Set up QEMU
@@ -27,8 +45,6 @@ jobs:
       - name: Build
         uses: docker/build-push-action@v3
         with:
-          context: "{{defaultContext}}:5.7"
-          platforms: linux/amd64,linux/arm64
+          context: "{{defaultContext}}:${{ matrix.version }}"
+          platforms: ${{ matrix.platform }}
           push: false
-          tags: |
-            local/mysql:ci

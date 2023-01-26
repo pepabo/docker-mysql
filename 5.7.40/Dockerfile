@@ -36,7 +36,7 @@ RUN set -eux; \
 	apt-get install -y --no-install-recommends \
 		bzip2 \
 		openssl \
-                tzdata \
+		tzdata \
 # FATAL ERROR: please install the following Perl modules before executing /usr/local/mysql/scripts/mysql_install_db:
 # File::Basename
 # File::Copy
